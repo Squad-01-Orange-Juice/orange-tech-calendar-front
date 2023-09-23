@@ -1,14 +1,18 @@
-import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
 import './App.css'
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route exact path="/" element={} />
-        <Route exact path="/login" element={} />
-      </Routes>
-    </>
+    <Router>
+      <>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </>
+    </Router>
   )
 }
 
