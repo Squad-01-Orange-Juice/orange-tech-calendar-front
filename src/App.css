@@ -3,9 +3,68 @@
 :root {
   /* Cores */
   --color-orange: #FF5A23;
-  --color-black: #0E131F;
+  --color-black: rgb(22,32,43);
+
+  --font-sans: 'Rubik', sans-serif;
 }
 
 body {
   background-color: var(--color-black);
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+}
+
+.heading-secondary {
+  font-size: 3rem;
+  margin-bottom: .5rem;
+  letter-spacing: 2px;
+  color: #fff; 
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  color: white;
+}
+
+.label {
+  color: #fff;
+  display: block;
+  margin-bottom: 1rem;
+
+  font-weight: 700;
+}
+
+.input {
+  background: none; 
+  width: 100%;
+  border: solid 1px gray;
+  border-radius: 1.2rem;
+  padding: .8rem 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: .9rem 2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1.2rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.btn--orange {
+  background-color: var(--color-orange);
+  color: #fff;
+}
+
+.link {
+  color: var(--color-orange);
+
+  cursor: pointer;
 }

@@ -1,0 +1,18 @@
+.auth-form {
+  border-radius: .5rem;
+  background-color: rgba(22, 32, 42, .9);
+  color: #fff;
+  padding: 5rem 1rem;
+  margin: 0 auto;
+  grid-row: 2;
+  width: 90%;
+}
+
+.auth-form_forgot {
+  display: block;
+  text-align: right;
+  transform: translateX(-2px);
+  color: var(--color-orange);
+  margin-bottom: 5rem;
+}
+
