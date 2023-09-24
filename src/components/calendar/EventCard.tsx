@@ -1,7 +1,10 @@
 import { MdLocationOn } from "react-icons/md"
+import { useState } from "react"
 import Styles from "./EventCard.module.css"
 
 const EventCard = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div className={Styles["card"]}>
       <div className={Styles["card__img-box"]}>

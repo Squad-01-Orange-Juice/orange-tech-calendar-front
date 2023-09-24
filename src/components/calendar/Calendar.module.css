@@ -4,7 +4,10 @@
 }
 
 .calendar {
+  position: relative;
   color: #fff;
   margin-bottom: 2rem;
   font-size: 1.2rem;
+  z-index: -1;
+  background-color: inherit;
 }

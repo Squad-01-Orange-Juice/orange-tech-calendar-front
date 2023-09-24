@@ -10,9 +10,16 @@
 }
 
 body {
+  position: relative;
   background-color: var(--color-black);
   font-family: var(--font-sans);
   font-size: 1.6rem;
+}
+
+.heading-primary {
+  font-size: 1.8rem;
+  color: white;
+  font-family: 'Lilita One', cursive;
 }
 
 .heading-secondary {
@@ -64,11 +71,22 @@ body {
   color: #fff;
 }
 
+.btn--transparent {
+  background-color: transparent;
+  color: var(--color-orange);
+}
+
 .btn--small {
   margin-bottom: 0;
   display: block;
   width: auto; 
   padding: .2rem .5rem;
+}
+
+.btn--md {
+  display: block;
+  width: auto;
+  padding: .2rem 2rem;
 }
 
 .link {
