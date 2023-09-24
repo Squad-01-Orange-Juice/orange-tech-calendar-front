@@ -8,3 +8,22 @@
 .form fieldset {
   margin-bottom: .5rem; 
 }
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 2px;
+}
+
+@media (min-width:601px) {
+  .form {
+    width: 50%;
+  }
+}
+
+@media (min-width:801px)  { 
+  .event-list {
+    flex-direction: row;
+  }  
+}

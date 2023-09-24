@@ -1,10 +1,16 @@
+import axios from "axios"
 import AuthFormPropsType from "../../types/AuthTypes"
 import Styles from "./AuthForm.module.css"
-import { ChangeEventHandler, useState } from "react"
+import { ChangeEventHandler, FormEventHandler, useState, useContext } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../context/AuthContext"
 
 const LoginForm = (props: AuthFormPropsType) => {
+  const { authenticated, setAuthenticated } = useContext(AuthContext)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  const navigate = useNavigate()
 
   const setEmailHandler:ChangeEventHandler<HTMLInputElement> = (evt) => {
     setEmail(evt.target.value)
@@ -14,8 +20,35 @@ const LoginForm = (props: AuthFormPropsType) => {
     setPassword(evt.target.value)
   }
 
+  const submitLoginHandler:FormEventHandler<HTMLFormElement> = (evt) => {
+    evt.preventDefault()
+
+    if(password.trim() !== "" && email.trim() !== "") {
+      const requestBody = {
+        email: email,
+        password: password
+      }
+
+      const LOGIN_URL = "https://orange-tech-calendar-api-production.up.railway.app/auth/login"
+       
+      axios.post(LOGIN_URL, requestBody)
+      .then((res) => {
+        console.log(res)
+        props.setToken(res.data.token)
+
+        setAuthenticated(true)
+
+        navigate("/")
+      })
+      .catch((err) => {
+        console.log(err) 
+      })
+    }
+
+  }
+
   return (
-    <form className={Styles["auth-form"]}>
+    <form className={Styles["auth-form"]} onSubmit={submitLoginHandler}>
       <h2 className="heading-secondary">Login</h2>
       <p className="subtitle">Conecte-se a eventos e oportunidades de networking!</p>
       <fieldset>

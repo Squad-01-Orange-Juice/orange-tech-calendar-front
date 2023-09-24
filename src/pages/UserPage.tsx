@@ -2,8 +2,22 @@ import "./UserPage.css"
 import Header from "../components/header/Header"
 import Calendar from "../components/calendar/Calendar"
 import EventCard from "../components/calendar/EventCard"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const UserPage = () => {
+  const [eventsList, setEventsList] = useState()
+
+  useEffect(() => {
+    axios.get("https://orange-tech-calendar-api-production.up.railway.app/eventos")
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [])
+
   return (
     <section className="section-user">
       <Header />

@@ -10,3 +10,16 @@
   display: flex;
   flex-direction: column;
 }
+
+@media (min-width:600px) {
+  .event-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }  
+}
+
+@media (min-width:801px)  { 
+  .event-list {
+    flex-direction: row;
+  }  
+}

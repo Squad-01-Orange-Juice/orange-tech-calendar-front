@@ -3,8 +3,8 @@ import RegisterForm from "../components/auth/RegisterForm"
 import { useState } from "react"
 import "./AuthPage.css"
 
-const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(false)
+const AuthPage = (props: any) => {
+  const [isLogin, setIsLogin] = useState(true)
 
   const setLoginHandler = () => {
     if(!isLogin) {
@@ -17,7 +17,7 @@ const AuthPage = () => {
   return (
     <section className="section-login">
       {
-        isLogin ? <LoginForm changeAuthPage={setLoginHandler} /> : <RegisterForm changeAuthPage={setLoginHandler} />
+        isLogin ? <LoginForm changeAuthPage={setLoginHandler} /> : <RegisterForm setToken={props.saveToken} changeAuthPage={setLoginHandler} />
       }
     </section>
   )
