@@ -3,7 +3,8 @@
 :root {
   /* Cores */
   --color-orange: #FF5A23;
-  --color-black: rgb(22,32,43);
+  --color-black: #0C1018;
+  --color-black-2: #0C1618;
 
   --font-sans: 'Rubik', sans-serif;
 }
@@ -18,7 +19,7 @@ body {
   font-size: 3rem;
   margin-bottom: .5rem;
   letter-spacing: 2px;
-  color: #fff; 
+  color: var(--color-orange); 
   font-weight: 700;
 }
 
@@ -61,6 +62,13 @@ body {
 .btn--orange {
   background-color: var(--color-orange);
   color: #fff;
+}
+
+.btn--small {
+  margin-bottom: 0;
+  display: block;
+  width: auto; 
+  padding: .2rem .5rem;
 }
 
 .link {

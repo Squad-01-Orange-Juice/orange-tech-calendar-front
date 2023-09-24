@@ -1,10 +1,24 @@
 import "./UserPage.css"
 import Calendar from "../components/calendar/Calendar"
+import EventCard from "../components/calendar/EventCard"
 
 const UserPage = () => {
   return (
     <section className="section-user">
-      <Calendar />
+      <div>
+        <h2 className="heading-secondary">Seus Eventos</h2>
+        <Calendar />
+      </div>
+      <div className="section-user__suggestions">
+        <h2 className="heading-secondary">Talvez você goste</h2>
+        <EventCard />
+        <EventCard />
+        <EventCard />
+        <EventCard />
+        <EventCard />
+        <EventCard />
+        <EventCard />
+      </div>
     </section>
   )
 }
