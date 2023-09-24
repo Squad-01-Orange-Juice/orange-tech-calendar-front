@@ -22,8 +22,9 @@ const OrgPage = () => {
       <Header />
       <div>
         <h2 className="heading-secondary">Meus Eventos</h2>
+        
         <button className="btn btn--small btn--transparent" onClick={setFormOpen}><MdAddCircleOutline /></button>
-        { isFormOpen ? <EventForm /> : <p>Fechado</p> }
+        { isFormOpen ? <EventForm /> : "" }
         <ul>
           <li><EventCard /></li>
         </ul>

@@ -1,0 +1,10 @@
+.form {
+  border: solid 1px gray;
+  border-radius: .3rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form fieldset {
+  margin-bottom: .5rem; 
+}

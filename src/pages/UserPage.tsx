@@ -7,19 +7,24 @@ const UserPage = () => {
   return (
     <section className="section-user">
       <Header />
-      <div>
-        <h2 className="heading-secondary">Seus Eventos</h2>
-        <Calendar />
-      </div>
+      <h2 className="heading-secondary">Seus Eventos</h2>
+      <Calendar />
       <div className="section-user__suggestions">
         <h2 className="heading-secondary">Talvez você goste</h2>
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
+        <ul className="event-list">
+          <li>
+            <EventCard />
+          </li>
+          <li>
+            <EventCard />
+          </li>
+          <li>
+            <EventCard />
+          </li>
+          <li>
+            <EventCard />
+          </li>
+        </ul>
       </div>
     </section>
   )

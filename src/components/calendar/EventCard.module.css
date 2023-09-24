@@ -1,6 +1,7 @@
 .card {
   position: relative;
   width: 90%; 
+  max-width: 40rem;
   height: 35rem;
   background-color: var(--color-black-2);
   color: #fff;

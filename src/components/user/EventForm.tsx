@@ -1,8 +1,8 @@
-
+import Styles from "./EventForm.module.css"
 
 const EventForm = () => {
   return (
-    <form className="form">
+    <form className={Styles["form"]}>
       <fieldset>
         <label className="label">Título do Evento</label>
         <input type="text" className="input" />
@@ -22,6 +22,10 @@ const EventForm = () => {
         <label className="label">Localização</label>
         <input type="text" className="input" />
       </fieldset>
+      <div className={Styles["buttons"]}>
+        <button className="btn">Cancelar</button> 
+        <button className="btn">Adicionar Evento</button> 
+      </div>
     </form>
   )
 }
