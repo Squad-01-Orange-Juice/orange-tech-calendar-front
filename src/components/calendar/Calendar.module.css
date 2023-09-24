@@ -1,0 +1,9 @@
+:root {
+  /* Customizing Calendar Plugin */
+  --fc-border-color: var(--color-orange);
+}
+
+.calendar {
+  color: #fff;
+  padding: 5rem;
+}
