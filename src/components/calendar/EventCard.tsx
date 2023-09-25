@@ -1,12 +1,28 @@
 import { MdLocationOn } from "react-icons/md"
-import { useState } from "react"
+import { MouseEventHandler, useState } from "react"
 import Styles from "./EventCard.module.css"
 import EventCardPropsType from "../../types/EventCardPropsType"
+import axios from "axios"
 
 const EventCard = (props: {data: EventCardPropsType}) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const FINAL_DATE = new Date(props.data.dataFinal)
+
+  const SubscribeHandler:MouseEventHandler<HTMLButtonElement> = () => {
+    const LINK = "https://orange-tech-calendar-api-production.up.railway.app/eventos/idEvento/inscricao"
+    const requestBody = {
+      id: localStorage.getItem("id")
+    }
+
+    axios.post(LINK, requestBody, { headers: { "Authorization": `Bearer ${localStorage.getItem("token")}`}})
+      .then((res) => {
+        console.log("adicionado", res)
+      })
+      .catch((err) => {
+        console.log("Error: ", err)
+      })
+  }
 
   return (
     <div className={Styles["card"]}>
@@ -25,7 +41,7 @@ const EventCard = (props: {data: EventCardPropsType}) => {
           </h4>
           <h3 className={Styles["card__title"]}>{props.data.nome}</h3>
           <p className={Styles["card__desc"]}>{props.data.descricao}</p>
-          <button className="btn btn--orange btn--small">Inscrever-se</button>
+          <button className="btn btn--orange btn--small" onClick={subscribeHandler}>Inscrever-se</button>
         </div>
       </div>
     </div>

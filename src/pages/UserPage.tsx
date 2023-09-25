@@ -14,7 +14,7 @@ const UserPage = () => {
   useEffect(() => {
     if(localStorage.getItem("token") !== "") {
       const REQ_LINK = "https://orange-tech-calendar-api-production.up.railway.app/eventos"
-      const REQ_USER_EVENT_LINK = ""
+      const REQ_USER_EVENT_LINK = "https://orange-tech-calendar-api-production.up.railway.app/usuario/eventosInscritos"
 
       axios.get(REQ_LINK, { headers: {"Authorization": `${localStorage.getItem("token")}`}})
         .then((res) => {

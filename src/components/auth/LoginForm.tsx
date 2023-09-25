@@ -39,6 +39,7 @@ const LoginForm = (props: AuthFormPropsType) => {
       .then((res) => {
         console.log(res)
         localStorage.setItem("token", res.data.token)
+        localStorage.setItem("id", res.data.id)
       })
       .catch((err) => {
         console.log("Error: ", err) 
