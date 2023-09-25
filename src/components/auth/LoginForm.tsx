@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthContext"
 const LoginForm = (props: AuthFormPropsType) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [userType, setUserType] = useState("")
       
   const navigate = useNavigate()
 
@@ -17,6 +18,10 @@ const LoginForm = (props: AuthFormPropsType) => {
 
   const setPasswordHandler:ChangeEventHandler<HTMLInputElement> = (evt) => {
     setPassword(evt.target.value)
+  }
+
+  const setUserTypeHandler = (type:string) => {
+    setUserType(type)
   }
 
   const submitLoginHandler:FormEventHandler<HTMLFormElement> = async (evt) => {
@@ -40,7 +45,11 @@ const LoginForm = (props: AuthFormPropsType) => {
       })
       .finally(() => {
         if(localStorage.getItem("token") !== "") {
-          navigate("/user")
+          if(userType === "ADMIN") {
+            navigate("/org")
+          } else {
+            navigate("/user")
+          }
         }
       })
     }
@@ -59,6 +68,13 @@ const LoginForm = (props: AuthFormPropsType) => {
         <input type="password" placeholder="Digite sua senha" id="password" className="input" value={password} onChange={setPasswordHandler} />
         <a className={Styles["auth-form__forgot"]}>Esqueceu a senha?</a>
       </fieldset>
+      <fieldset className="m-2">
+        <h3 className="heading-tertiary">Selecione o tipo de usuário</h3>
+        <label htmlFor="userTypeNormal" className="">Usuário*</label>
+        <input type="radio" name="userType" value="USER" id="userTypeNormal" onChange={() => setUserTypeHandler("USER")} />
+        <label htmlFor="userTypeAdmin" className="">Administrador*</label>
+        <input type="radio" name="userType" value="ADMIN" id="userTypeAdmin" onChange={() => setUserTypeHandler("ADMIN")} />
+      </fieldset>  
       <button className="btn btn--orange">Login</button>
 
       <a onClick={props.changeAuthPage}>Não tem cadastro? <span className="link">Crie sua conta agora!</span></a>

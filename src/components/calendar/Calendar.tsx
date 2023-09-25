@@ -1,9 +1,6 @@
 import Styles from "./Calendar.module.css"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
-import EventObject from "../../types/EventType"
-import { useEffect, useState } from "react"
-import axios from "axios"
 import { EventInput } from "@fullcalendar/core/index.js"
 
 const DUMMY_EVENTS:EventInput[] = [
@@ -19,20 +16,7 @@ const DUMMY_EVENTS:EventInput[] = [
   }
 ]
 
-const Calendar = () => {
-  const [events, setEvents] = useState<EventInput[]>(DUMMY_EVENTS)
-
-  /* useEffect(() => {
-    // Testing API
-    // TOOD: Creae this events on he calendar
-    axios.get("https://www.eventbriteapi.com/v3?token=Z762PR2OBX3ZFKOQUE3D")
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((err) => {
-        console.error("Whoops! Something went wrong in request", err)
-      })
-  }, []) */
+const Calendar = (props: {userEvents: EventInput[]}) => {
 
   return (
     <div className={Styles["calendar"]}>
@@ -45,7 +29,7 @@ const Calendar = () => {
           left: "prev,next",
           right: "title"
         }}
-        events={events}
+        events={props.userEvents}
       />
     </div>
   )

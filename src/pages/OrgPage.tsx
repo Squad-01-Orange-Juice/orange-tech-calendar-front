@@ -26,7 +26,7 @@ const OrgPage = () => {
         <button className="btn btn--small btn--transparent" onClick={setFormOpen}><MdAddCircleOutline /></button>
         { isFormOpen ? <EventForm /> : "" }
         <ul>
-          <li><EventCard /></li>
+          <li></li>
         </ul>
       </div>
     </section>
