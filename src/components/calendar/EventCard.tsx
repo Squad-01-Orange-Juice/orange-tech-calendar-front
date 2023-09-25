@@ -1,9 +1,12 @@
 import { MdLocationOn } from "react-icons/md"
 import { useState } from "react"
 import Styles from "./EventCard.module.css"
+import EventCardPropsType from "../../types/EventCardPropsType"
 
-const EventCard = () => {
+const EventCard = (props: {data: EventCardPropsType}) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const FINAL_DATE = new Date(props.data.dataFinal)
 
   return (
     <div className={Styles["card"]}>
@@ -12,16 +15,16 @@ const EventCard = () => {
       </div>
       <div className={Styles["card__body"]}>
         <p className={Styles["card__date"]}>
-          <span>nov</span>
-          <span>25</span>
+          <span>{FINAL_DATE.getMonth()}</span>
+          <span>{FINAL_DATE.getDay()}</span>
         </p>
         <div className={Styles["card__body-right"]}>
           <h4 className={Styles["card__location"]}>
             <MdLocationOn className={Styles["card__icon"]} />
-            Online
+            {props.data.nome}
           </h4>
-          <h3 className={Styles["card__title"]}>Rustconf 2023</h3>
-          <p className={Styles["card__desc"]}>Going hard this november with your favorite programmers</p>
+          <h3 className={Styles["card__title"]}>{props.data.nome}</h3>
+          <p className={Styles["card__desc"]}>{props.data.descricao}</p>
           <button className="btn btn--orange btn--small">Inscrever-se</button>
         </div>
       </div>

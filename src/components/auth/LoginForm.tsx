@@ -2,14 +2,13 @@ import axios from "axios"
 import AuthFormPropsType from "../../types/AuthTypes"
 import Styles from "./AuthForm.module.css"
 import { ChangeEventHandler, FormEventHandler, useState, useContext } from "react"
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
 
 const LoginForm = (props: AuthFormPropsType) => {
-  const { authenticated, setAuthenticated } = useContext(AuthContext)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
+      
   const navigate = useNavigate()
 
   const setEmailHandler:ChangeEventHandler<HTMLInputElement> = (evt) => {
@@ -20,12 +19,12 @@ const LoginForm = (props: AuthFormPropsType) => {
     setPassword(evt.target.value)
   }
 
-  const submitLoginHandler:FormEventHandler<HTMLFormElement> = (evt) => {
+  const submitLoginHandler:FormEventHandler<HTMLFormElement> = async (evt) => {
     evt.preventDefault()
 
     if(password.trim() !== "" && email.trim() !== "") {
       const requestBody = {
-        email: email,
+        login: email,
         password: password
       }
 
@@ -34,17 +33,17 @@ const LoginForm = (props: AuthFormPropsType) => {
       axios.post(LOGIN_URL, requestBody)
       .then((res) => {
         console.log(res)
-        props.setToken(res.data.token)
-
-        setAuthenticated(true)
-
-        navigate("/")
+        localStorage.setItem("token", res.data.token)
       })
       .catch((err) => {
-        console.log(err) 
+        console.log("Error: ", err) 
+      })
+      .finally(() => {
+        if(localStorage.getItem("token") !== "") {
+          navigate("/user")
+        }
       })
     }
-
   }
 
   return (

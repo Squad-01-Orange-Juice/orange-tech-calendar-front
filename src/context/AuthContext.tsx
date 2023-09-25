@@ -24,7 +24,7 @@ const AuthProvider = ({children}: Props) => {
   const navigate = useNavigate()
 
   return (
-    <AuthContext.Provider value={{authenticated, setAuthenticated}}>
+    <AuthContext.Provider value={{authenticated,  setAuthenticated}}>
       {children}
     </AuthContext.Provider>
   )

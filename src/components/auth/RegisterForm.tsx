@@ -14,7 +14,7 @@ const RegisterForm = (props: AuthFormPropsType) => {
   const submitHandler:FormEventHandler = (evt) => {
     evt.preventDefault()
 
-    console.log(userType)
+    const REQUEST_LINK = "https://orange-tech-calendar-api-production.up.railway.app/auth/registrar"
 
     const requestBody = {
       login: email,
@@ -23,9 +23,7 @@ const RegisterForm = (props: AuthFormPropsType) => {
       userRole: userType
     }
 
-    console.log(requestBody)
-
-    axios.post("base", requestBody)
+    axios.post(REQUEST_LINK, requestBody)
       .then((res) => {
         console.log(res)   
       })

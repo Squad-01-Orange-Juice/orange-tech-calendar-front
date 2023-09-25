@@ -1,6 +1,15 @@
+import { useState } from "react"
 import Styles from "./EventForm.module.css"
 
 const EventForm = () => {
+  const [nome, setNome] = useState("")
+  const [descricao, setDescricao] = useState("")
+  const [local, setLocal] = useState("")
+  const [link, setLink] = useState("")
+  const [dataInicio, setDataInicio] = useState("")
+  const [grauito, setGratuito] = useState(false)
+
+
   return (
     <form className={Styles["form"]}>
       <fieldset>
